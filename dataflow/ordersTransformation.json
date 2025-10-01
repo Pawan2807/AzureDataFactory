@@ -36,7 +36,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "ds_high_value_orders",
+						"referenceName": "high_value_orders_sink",
 						"type": "DatasetReference"
 					},
 					"name": "highValueOrders"
@@ -122,20 +122,18 @@
 				"split1@highValueOrders sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          order_id as integer,",
-				"          order_customer_id as integer,",
-				"          order_amount as double,",
+				"          order_id as string,",
+				"          order_customer_id as string,",
+				"          order_amount as string,",
 				"          order_date as string,",
 				"          order_status as string",
 				"     ),",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> highValueOrders"
+				"     format: 'table') ~> highValueOrders"
 			]
 		}
 	}
