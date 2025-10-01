@@ -1,0 +1,27 @@
+{
+	"name": "errorneous_order",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sink_retail",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Transformation"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "errorneous_order",
+				"fileSystem": "target"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

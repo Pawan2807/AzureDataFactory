@@ -1,0 +1,25 @@
+{
+	"name": "ls_high_value_data_db",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "mothershipserver.database.windows.net",
+			"database": "high_value_order",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "pdeep",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_key_vault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "AzureDB",
+				"secretVersion": "16cb0a95f87e4c4598c6c8406f6658bf"
+			}
+		}
+	}
+}
